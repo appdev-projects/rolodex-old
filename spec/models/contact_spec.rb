@@ -21,7 +21,7 @@ describe "Contact" do
 end
 
 describe "Contact" do
-  it "has `first_name instance method", points: 1 do
+  it "has an attribute called `first_name`", points: 1 do
     new_contact = Contact.new
     new_contact.first_name = "Hashim"
     expect(new_contact).to have_attributes({ :first_name => "Hashim" })
