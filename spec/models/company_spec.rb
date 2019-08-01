@@ -2,9 +2,18 @@ require "rails_helper"
 
 describe "Company" do
   it "has a migration file", points: 1 do
-    array_of_filenames_that_include_company = Dir["db/migrate/*company*.rb"]
-    first_migration = array_of_filenames_that_include_company.first
-    expect(File.exists?(first_migration)).to be(true)
+    all_migration_files = Dir["db/migrate/*.rb"]
+    company_migrations_exists = false
+    
+    all_migration_files.each do |file|
+      file_content = open(file).read
+      file_content_words = file_content.split
+      if file_content.count(":companies") > 0
+        company_migrations_exists = true
+      end
+    end
+    
+    expect(company_migrations_exists).to be(true)
   end
 end
 
@@ -21,7 +30,7 @@ describe "Company" do
 end
 
 describe "Company" do
-  it "has an attribute called `name`", points: 1 do
+  it "has an attribute called name`", points: 1 do
     new_company = Company.new
     new_company.name = "Butamax"
     expect(new_company).to have_attributes({ :name => "Butamax" })
