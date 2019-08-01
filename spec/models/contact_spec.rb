@@ -23,7 +23,6 @@ end
 describe "Contact" do
   it "has attr_accessor instance methods", points: 1 do
     new_contact = Contact.new
-    new_contact.save
     expect { new_contact.first_name }.to_not raise_error
   end
 end
