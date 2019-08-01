@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "Company" do
-  it "has a migration file", points: 1 do
+  it "has a underlying table", points: 1 do
     company_migrations_exists = false
     
     if ActiveRecord::Base.connection.table_exists? "companies"
