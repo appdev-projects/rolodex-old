@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: contacts
-#
-#  id            :integer          not null, primary key
-#  date_of_birth :date
-#  first_name    :string
-#  last_name     :string
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#
-
 require "rails_helper"
 
 describe "Contact" do
@@ -33,9 +21,10 @@ describe "Contact" do
 end
 
 describe "Contact" do
-  it "has attr_accessor instance methods", points: 1 do
+  it "has `first_name instance method", points: 1 do
     new_contact = Contact.new
-    new_contact.save
-    expect { new_contact.first_name }.to_not raise_error((NoMethodError))
+    new_contact.first_name = "Hashim"
+    expect(new_contact).to have_attributes({ :first_name => "Hashim" })
+    expect { new_contact.first_name }.to_not raise_error(NoMethodError)
   end
 end
