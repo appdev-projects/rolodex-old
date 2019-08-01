@@ -30,9 +30,8 @@ describe "Company" do
 end
 
 describe "Company" do
-  it "has an attribute called name`", points: 1 do
+  it "has an attribute called name", points: 1 do
     new_company = Company.new
-    new_company.name = "Butamax"
-    expect(new_company).to have_attributes({ :name => "Butamax" })
+    expect(new_company.attributes).to include("name")
   end
 end
