@@ -22,7 +22,7 @@ end
 
 describe "Contact" do
   it "is a table that exists", points: 2 do
-    expect { Contact }.to_not raise_error
+    expect { Contact }.to_not raise_error(NameError)
   end
 end
 
@@ -36,6 +36,6 @@ describe "Contact" do
   it "has attr_accessor instance methods", points: 1 do
     new_contact = Contact.new
     new_contact.save
-    expect { new_contact.first_name }.to_not raise_error
+    expect { new_contact.first_name }.to_not raise_error((NoMethodError))
   end
 end

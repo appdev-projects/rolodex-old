@@ -24,7 +24,7 @@ end
 
 describe "Company" do
   it "is a table that exists", points: 2 do
-    expect { Company }.to_not raise_error
+    expect { Company }.to_not raise_error(NameError)
   end
 end
 
@@ -37,6 +37,6 @@ end
 describe "Company" do
   it "has attr_accessor instance methods", points: 1 do
     new_company = Company.new
-    expect { new_company.name }.to_not raise_error
+    expect { new_company.name }.to_not raise_error(NoMethodError)
   end
 end
