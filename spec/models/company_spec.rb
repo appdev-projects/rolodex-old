@@ -1,17 +1,3 @@
-# == Schema Information
-#
-# Table name: companies
-#
-#  id                :integer          not null, primary key
-#  founded_on        :date
-#  industry          :string
-#  last_year_revenue :integer
-#  name              :string
-#  structure         :string
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#
-
 require "rails_helper"
 
 describe "Company" do
@@ -24,7 +10,7 @@ end
 
 describe "Company" do
   it "is a table that exists", points: 2 do
-    expect { Company }.to_not raise_error(NameError)
+    expect{ Company }.to_not raise_error(NameError)
   end
 end
 
@@ -35,8 +21,9 @@ describe "Company" do
 end
 
 describe "Company" do
-  it "has attr_accessor instance methods", points: 1 do
+  it "has an attribute called `name`", points: 1 do
     new_company = Company.new
-    expect { new_company.name }.to_not raise_error(NoMethodError)
+    new_company.name = "Butamax"
+    expect(new_company).to have_attributes({ :name => "Butamax" })
   end
 end
