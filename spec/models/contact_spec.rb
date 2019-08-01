@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  id            :integer          not null, primary key
+#  date_of_birth :date
+#  first_name    :string
+#  last_name     :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 require "rails_helper"
 
 describe "Contact" do
@@ -21,10 +33,8 @@ describe "Contact" do
 end
 
 describe "Contact" do
-  it "has an attribute called `first_name`", points: 1 do
+  it "has an attribute called first_name", points: 1 do
     new_contact = Contact.new
-    new_contact.first_name = "Hashim"
-    expect(new_contact).to have_attributes({ :first_name => "Hashim" })
-    expect { new_contact.first_name }.to_not raise_error(NoMethodError)
+    expect(new_contact.attributes).to include("first_name")
   end
 end
