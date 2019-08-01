@@ -7,8 +7,9 @@ describe "Company" do
     
     all_migration_files.each do |file|
       file_content = open(file).read
-      file_content_words = file_content.split
-      if file_content.count(":companies") > 0
+      parsed_content = file_content.gsub(/[^a-z]/i, " ")
+      file_content_words = parsed_content.split
+      if file_content_words.count("companies") > 0
         company_migrations_exists = true
       end
     end
