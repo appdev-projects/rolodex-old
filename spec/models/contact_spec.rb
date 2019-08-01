@@ -21,8 +21,10 @@ describe "Contact" do
 end
 
 describe "Contact" do
-  it "has attr_accessor instance methods", points: 1 do
+  it "has `first_name instance method", points: 1 do
     new_contact = Contact.new
+    new_contact.first_name = "Hashim"
+    expect(new_contact).to have_attributes({ :first_name => "Hashim" })
     expect { new_contact.first_name }.to_not raise_error(NoMethodError)
   end
 end

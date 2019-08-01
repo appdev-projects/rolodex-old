@@ -21,8 +21,9 @@ describe "Company" do
 end
 
 describe "Company" do
-  it "has attr_accessor instance methods", points: 1 do
+  it "has an attribute called `name`", points: 1 do
     new_company = Company.new
-    expect{ new_company.name }.to_not raise_error(NoMethodError)
+    new_company.name = "Butamax"
+    expect(new_company).to have_attributes({ :name => "Butamax" })
   end
 end
