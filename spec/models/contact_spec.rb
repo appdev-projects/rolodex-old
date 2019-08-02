@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "Contact" do
-  it "has a underlying table", points: 1 do
+  it "has an underlying table", points: 1 do
     contact_migration_exists = false
     
     if ActiveRecord::Base.connection.table_exists? "contacts"
