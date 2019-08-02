@@ -11,12 +11,10 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
-
 require "rails_helper"
 
 describe "Company" do
-  it "has a migration file", points: 1 do
-    all_migration_files = Dir["db/migrate/*.rb"]
+  it "has an underlying table", points: 1 do
     company_migrations_exists = false
     
     if ActiveRecord::Base.connection.table_exists? "companies"
@@ -41,7 +39,6 @@ end
 describe "Company" do
   it "has an attribute called name", points: 1 do
     new_company = Company.new
-    p new_company.attributes
     expect(new_company.attributes).to include("name")
   end
 end

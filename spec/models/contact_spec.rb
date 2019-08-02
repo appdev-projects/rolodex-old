@@ -13,10 +13,13 @@
 require "rails_helper"
 
 describe "Contact" do
-  it "has a migration file", points: 1 do
-    array_of_filenames_that_include_contact = Dir["db/migrate/*contact*.rb"]
-    first_migration = array_of_filenames_that_include_contact.first
-    expect(File.exists?(first_migration)).to be(true)
+  it "has an underlying table", points: 1 do
+    contact_migration_exists = false
+    
+    if ActiveRecord::Base.connection.table_exists? "contacts"
+      contact_migration_exists = true
+    end
+    expect(contact_migration_exists).to be(true)
   end
 end
 
