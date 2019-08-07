@@ -49,10 +49,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
+  gem 'activerecord-import'
   gem 'awesome_print'
   gem 'console_ip_whitelist', github: 'firstdraft/console_ip_whitelist'
   gem 'dotenv-rails'
   gem 'grade_runner', github: 'firstdraft/grade_runner'
+  gem 'faker'
   gem 'pry-rails'
   gem 'sqlite3', '~> 1.3.6'
   gem 'table_print'
