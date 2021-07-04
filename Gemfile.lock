@@ -398,6 +398,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   grade_runner!
+  hashdiff (>= 1.0.0.beta1, < 2.0.0)
   jbuilder (~> 2.5)
   letter_opener
   listen (>= 3.0.5, < 3.2)
